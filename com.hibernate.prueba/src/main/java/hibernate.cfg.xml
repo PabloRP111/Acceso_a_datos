@@ -10,6 +10,5 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.default_schema">zoologico</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <mapping class="pojo.Animal"/>
     </session-factory>
 </hibernate-configuration>
