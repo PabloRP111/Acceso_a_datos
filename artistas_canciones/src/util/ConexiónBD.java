@@ -8,7 +8,7 @@ public class ConexiónBD {
 Connection connection;
 	
 	public Connection getConnection () {
-		String dbName = "bd_series";
+		String dbName = "bd_artístas_canciones";
 		String userName = "root";
 		String password = "admin";
 		
