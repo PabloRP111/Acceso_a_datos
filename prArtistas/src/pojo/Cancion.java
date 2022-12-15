@@ -2,18 +2,21 @@ package pojo;
 
 import java.time.LocalDate;
 import java.util.Date;
-
+/**
+ * El pojo cancion, tine lo tipico de los pollos los getters, los setters y un toString
+ * @author asraum
+ *
+ */
 public class Cancion {
-	
+	//Creo que los nombres de las variables son muy autodescriptivos como para explicar que representan
 	private int id;
 	private String nombre;
 	private String genero;
 	private boolean exito;
 	private boolean colaboracion;
-	private Date fecha_salida;
 	private Artista autor;
 	
-	public Cancion(int id, String nombre, String genero, boolean exito, boolean colaboracion, Date fecha_salida,
+	public Cancion(int id, String nombre, String genero, boolean exito, boolean colaboracion, 
 			Artista autor) {
 		super();
 		this.id = id;
@@ -21,28 +24,26 @@ public class Cancion {
 		this.genero = genero;
 		this.exito = exito;
 		this.colaboracion = colaboracion;
-		this.fecha_salida = fecha_salida;
 		this.autor = autor;
 	}
 
-	public Cancion(String nombre, String genero, boolean exito, boolean colaboracion, Date fecha_salida) {
+	public Cancion(String nombre, String genero, boolean exito, boolean colaboracion) {
 		super();
 		this.nombre = nombre;
 		this.genero = genero;
 		this.exito = exito;
 		this.colaboracion = colaboracion;
-		this.fecha_salida = fecha_salida;
 	}
 
-	public Cancion(int int1, String string, String string2, boolean boolean1, boolean boolean2, java.sql.Date date) {
+	public Cancion(int id, String nombre, String genero, boolean exito, boolean colaboracion) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.genero = genero;
 		this.exito = exito;
 		this.colaboracion = colaboracion;
-		this.fecha_salida = fecha_salida;
 	}
+
 
 	public int getId() {
 		return id;
@@ -84,13 +85,6 @@ public class Cancion {
 		this.colaboracion = colaboracion;
 	}
 
-	public Date getFecha_salida() {
-		return fecha_salida;
-	}
-
-	public void setFecha_salida(Date fecha_salida) {
-		this.fecha_salida = fecha_salida;
-	}
 
 	public Artista getAutor() {
 		return autor;
@@ -102,8 +96,8 @@ public class Cancion {
 
 	@Override
 	public String toString() {
-		return "Cancion: \nid=" + id + ", nombre=" + nombre + ", genero=" + genero + ", exito=" + exito
-				+ ", colaboracion=" + colaboracion + ", fecha_salida=" + fecha_salida + ", autor=" + autor;
+		return "\n\tid=" + id + ", \n\t nombre=" + nombre + ", \n\t genero=" + genero + ", \n\t exito=" + exito
+				+ ", \n\t colaboracion=" + colaboracion + ", \n\t autor=" + autor.getNombre();
 	}
 
 	

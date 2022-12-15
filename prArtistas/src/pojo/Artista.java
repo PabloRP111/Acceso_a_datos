@@ -1,8 +1,13 @@
 package pojo;
 
 import java.util.ArrayList;
-
+/**
+ * El pojo artistas, tine lo tipico de los pollos los getters, los setters y un toString
+ * @author asraum
+ *
+ */
 public class Artista {
+	//Creo que los nombres de las variables son muy autodescriptivos como para explicar que representan
 	private int id;
 	private String nombre;
 	private byte edad;
@@ -90,8 +95,8 @@ public class Artista {
 
 	@Override
 	public String toString() {
-		return "Artista: \nid=" + id + ", nombre=" + nombre + ", edad=" + edad + ", discografica=" + discografica
-				+ ", nacionalidad=" + nacionalidad + ", nExitos=" + nExitos + ", canciones=" + canciones;
+		return "\n\tid=" + id + ", \n\t nombre=" + nombre + ", \n\t edad=" + edad + ", \n\t discografica=" + discografica
+				+ ", \n\t nacionalidad=" + nacionalidad + ",\n\t nExitos=" + nExitos + ", \n\t canciones=" + canciones +"\n\n";
 	}
 	
 	

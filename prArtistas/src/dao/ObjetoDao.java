@@ -5,6 +5,11 @@ import java.sql.SQLException;
 
 import util.DatabaseConnection;
 
+/**
+ * La clase que contiene las funciones de abrir y cerrar conexion
+ * @author asraum
+ *
+ */
 public class ObjetoDao {
 	
 	private static Connection connection;

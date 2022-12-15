@@ -2,6 +2,12 @@ package interfaces;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author asraum
+ *La interfaz que implementaremos en los DAOs
+ * @param <T>
+ */
 public interface InterfazDao<T> {
 	
 	/**

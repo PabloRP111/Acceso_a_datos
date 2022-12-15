@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/*
+ * Clase que usaremos para conectarnos a la base de datos, no hay mucho que explicar
+ */
 public class DatabaseConnection {
 
 	Connection connection;
 	
 	public Connection getConnection () {
-		String dbName = "bd_artístas_canciones";
+		String dbName = "bd_artistas_canciones";
 		String userName = "root";
 		String password = "admin";
 		
