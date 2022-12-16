@@ -16,10 +16,12 @@ public class Main {
 		ArtistaDAO artistaDao = new ArtistaDAO();
 		CancionDAO cancionDao = new CancionDAO();
 		
+		//Creamos artistas
 		Artista artista1 = new Artista(1,"Mickel Jackson",(byte) 52, "SONY RECORDS", "Estadounidense", (byte)30, null);
 		Artista artista2 = new Artista(2,"Dellaosa",(byte) 29, "Space Hammurabi", "Español", (byte)3, null);
 		Artista artista3 = new Artista(3,"The beatles",(byte) 29, "Warner", "Ingleses", (byte)40, null);
 		
+		////Creamos canciones
 		Cancion cancion1 = new Cancion(1,"La placita", "Rap", true, false, artista2);
 		Cancion cancion2 = new Cancion(2,"Come Together", "Rock", true, false, artista3);
 		Cancion cancion3 = new Cancion(3,"Beat It", "Pop", true, false, artista1);
@@ -74,8 +76,17 @@ public class Main {
 		System.out.println("\nLa cancion de id 1 es:");
 		System.out.println(cancionDao.buscarPorId(1));
 		
+		//Buscar por nombre artista
+		System.out.println("\nBuscar por nombre Artista:");
+		System.out.println(artistaDao.buscarPorNombre("Dellaosa"));
 		
+		//Buscar por nombre artista
+		System.out.println("\nBuscar por nombre Cancion:");
+		System.out.println(cancionDao.buscarPorNombre("Come Together"));
 		
+		//cancionDao.borrarTodo();
+		//artistaDao.borrarTodo();
+
 		
 	}
 

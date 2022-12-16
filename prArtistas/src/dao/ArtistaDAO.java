@@ -241,6 +241,73 @@ public class ArtistaDAO extends ObjetoDao implements InterfazDao<Artista> {
 		closeConnection();
 	}
 	
+	/**
+	 * Funcion para borrar todos lor registros
+	 */
+	public void borrarTodo() {
+		connection = openConnection();
+		
+		
+		String query2 = "DELETE FROM artistas";
+		
+		/*
+		String query1 = "DELETE FROM canciones";
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement(query1);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		*/
+		try {
+			PreparedStatement ps = connection.prepareStatement(query2);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		closeConnection();
+		
+	}
 
+	/**
+	 * Funcion que funciona prácticamente igual que buscar por id, pero pasandole 
+	 * en la consulta el nombre en vez del id
+	 * @param nombre
+	 * @return
+	 */
+	public Artista buscarPorNombre(String nombre) {
+		connection = openConnection();
+		
+		Artista artista = null;
+		
+		String query = "select * from artistas where nombre = ?";
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setString(1, nombre);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				artista = new Artista(
+						rs.getInt("id"),
+						rs.getString("Nombre"),
+						rs.getByte("Edad"),
+						rs.getString("Discografica"),
+						rs.getString("Nacionalidad"),
+						rs.getByte("NExitos"),
+						null
+				);
+				artista.setCanciones(obtenerCanciones(artista));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		closeConnection();
+		
+		return artista;
+	}
 	
 }

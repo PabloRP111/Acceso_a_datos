@@ -16,6 +16,16 @@ public class Artista {
 	private byte nExitos;
 	private ArrayList<Cancion> canciones;
 	
+	/**Primer constructor de la clase, en este caso recive todos los
+	 * Constructor que recibe por argumento
+	 * @param id
+	 * @param nombre
+	 * @param edad
+	 * @param discografica
+	 * @param nacionalidad
+	 * @param nExitos
+	 * @param canciones
+	 */
 	public Artista(int id, String nombre, byte edad, String discografica, String nacionalidad, byte nExitos,
 			ArrayList<Cancion> canciones) {
 		super();

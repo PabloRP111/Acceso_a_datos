@@ -224,6 +224,8 @@ public class CancionDAO extends ObjetoDao implements InterfazDao<Cancion>{
 		
 	}
 
+	
+	
 	/**
 	 * Metodo para resetear el Auto Increment del id de canciones
 	 */
@@ -242,4 +244,63 @@ public class CancionDAO extends ObjetoDao implements InterfazDao<Cancion>{
 		closeConnection();
 	}
 
+	/**
+	 * Funcion para borrar todos los registros
+	 */
+	public void borrarTodo() {
+		connection = openConnection();
+		
+		String query1 = "DELETE FROM canciones";
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement(query1);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		closeConnection();
+		
+	}
+	
+	/**Función que es casi identica a buscar por id, pero cambiando la consulta
+	 * por un String (nombre)
+	 * 
+	 * @param nombre
+	 * @return
+	 */
+	public Cancion buscarPorNombre( String nombre) {
+		connection = openConnection();
+		
+		Cancion cancion = null;
+		Artista artista = null;
+		
+		String query = "select * from canciones where nombre = ?";
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setString(1, nombre);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				cancion = new Cancion(
+						rs.getInt("id"),
+						rs.getString("Nombre"),
+						rs.getString("Genero"),
+						rs.getBoolean("Exito"),
+						rs.getBoolean("Colaboracion"),
+						null
+				);
+				cancion.setAutor(obtenerAutor(cancion));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		closeConnection();
+		
+		return cancion;
+	}
+	
 }
